@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>phrases</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <br><p id="phraseDisplay">[loading database]</p><br><br>
+		<div id="controls">
+      <button id="generateButton" class="input">new phrase</button>
+      <br>
+       <span>word separator </span>
+       <input id="wordSeparator" class="input textInput" type="text" name="wordSeparator" size="5" maxlength="5" spellcheck="false"><br>
+       <span>number of words </span>
+       <input id="phraseLength" class="input textInput" type="text" name="phraseLength" size="5" maxlength="5" spellcheck="false"><br>
+      <select id="dictionarySelect" class="input" name="dictionary">
+        <option value="multilingual">multilingual</option>
+        <option value="eff">english-eff</option>
+        <option value="diceware">english-diceware</option>
+      </select>
+      <select id="capitalsSelect" class="input" name="capitals">
+       <option class="input" value="false">lowercase</option>
+       <option value="camel">camelCase</option>
+       <option value="true">UpperCase</option>
+     </select>
+		</div>
+    <div id="helpGap">
+      <div id="instructions" class="hidden">
+        <span>if you have no idea what to do, you should use:</span>
+        <ul>
+          <li>english-eff dictionary</li>
+          <li>4 words long</li>
+          <li>no word separator</li>
+          <li>in UpperCase</li>
+        </ul>
+        <p>if this is an important high-security password, you should use at least 6 words.</p>
+        <a href="https://xkcd.com/936/">why should i use a passphrase?</a>
+        <p>  (note, the link above was published ~10 years ago-- 44 bits is no longer strong enough for most applications)</p>
+      </div>
+      <div id="data" class="hidden">
+        <span>multilingual dictionary:</span><br>
+        <span>average word length:  </span>
+        <span id="multiAvg"></span><br> <!--5.257 -->
+        <span>bits of entropy per word:  </span>
+        <span id="multiEntropy"><br>
+        <span>diceware dictionary</span><br>
+        <span>average word length:  <span>
+        <span id="diceAvg"></span><br> <!--4.245 -->
+        <span>average length of eff word: </span>
+        <span id="diceEntropy"></span><br>
+        <span>eff dictionary:</span>
+        <span>average word length:  <span>
+        <span id="effAvg"></span><br> <!--6.99 -->
+        <span>bits of entropy per word:  </span>
+        <span id="effEntropy"></span>
+        <p>i hope that answers your question</p>
+      </div>
+      <div id="why" class="hidden">
+        <span>why the hell did you do this?</span>
+        <ol>
+          <li>for fun/to see if i could</li>
+          <li>i'm crazy</li>
+        </ol>
+        <p>there are <a href="https://www.rempe.us/diceware/#eff">better passphrase generators</a> out there, and you should probably use them.
+      </div>
+    </div>
+    <div id="footerLinks">
+      <a id="instructionsLink">help</a>
+      <span> - </span>
+      <a id="dataLink">data</a>
+      <span> - </span>
+      <a id="whyLink">what the hell is this</a><br><br>
+      <a href="">ludant@github</a>
+    </div>
+    <script language="JavaScript" type="text/javascript" src="script.js"></script>
+  </body>
+</html>
