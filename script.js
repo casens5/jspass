@@ -18,16 +18,17 @@ const diceEntropy = document.querySelector('#diceEntropy');
 const effEntropy = document.querySelector('#effEntropy');
 
 const instructionsDiv = document.querySelector('#instructions');
-const dataDiv = document.querySelector('#data');
-const whyDiv = document.querySelector('#why');
+// const dataDiv = document.querySelector('#data');
+// const whyDiv = document.querySelector('#why');
 const instructionsLink = document.querySelector('#instructionsLink');
-const dataLink = document.querySelector('#dataLink');
-const whyLink = document.querySelector('#whyLink');
-instructionsLink.addEventListener('click', () => {instructionsDiv.classList.toggle('hidden');
-dataDiv.classList.add('hidden');
-whyDiv.classList.add('hidden')})
-dataLink.addEventListener('click', () => {dataDiv.classList.toggle('hidden')})
-whyLink.addEventListener('click', () => {whyDiv.classList.toggle('hidden')})
+// const dataLink = document.querySelector('#dataLink');
+// const whyLink = document.querySelector('#whyLink');
+instructionsLink.addEventListener('click', () => {instructionsDiv.classList.toggle('hidden')
+});
+// dataDiv.classList.add('hidden');
+// whyDiv.classList.add('hidden')})
+// dataLink.addEventListener('click', () => {dataDiv.classList.toggle('hidden')})
+// whyLink.addEventListener('click', () => {whyDiv.classList.toggle('hidden')})
 
 const newPhraseBtn = document.querySelector('#generateButton');
 newPhraseBtn.addEventListener('click', () => {
@@ -45,11 +46,11 @@ function dictAvg(dictionary, domElement) {
   domElement.textContent = number + " characters"
 }
 
-function averageDictionaries() {
-  dictAvg(dictionaries.multilingual, multiAvg);
-  dictAvg(dictionaries.eff, effAvg);
-  dictAvg(dictionaries.diceware, diceAvg);
-}
+// function averageDictionaries() {
+//   dictAvg(dictionaries.multilingual, multiAvg);
+//   dictAvg(dictionaries.eff, effAvg);
+//   dictAvg(dictionaries.diceware, diceAvg);
+// }
 
 function newPhrase(dictionary, length = 4, separator = " ", caps = "false" ) {
   let camel = false
@@ -57,6 +58,7 @@ function newPhrase(dictionary, length = 4, separator = " ", caps = "false" ) {
   let phrase = []
   let word
   if (length < 1) { length = 4; separator = " " };
+	if (length > 99) { length = 99};
   for (let i = 0; i < length; i++) {
     word = dictionary[Math.floor(Math.random() * dictionary.length)];
     if (caps == "true") {word = word.capitalize()}
@@ -77,7 +79,7 @@ function loadDict(url, dictionaryName, generate = false) {
       // going to programmer hell for this one
       if (generate) {
         newPhrase(dictionaries[dictionaryName], 4, " ", "false")
-        averageDictionaries();
+        //averageDictionaries();
       };
     }
   };
