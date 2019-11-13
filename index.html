@@ -7,72 +7,75 @@
     <link href="main.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <br />
-    <p id="phraseDisplay">[loading database]</p>
-    <br /><br />
-    <div id="controls">
-      <button id="generateButton" class="input">new phrase</button>
+    <div class="container">
       <br />
-      <span>word separator </span>
-      <input
-        id="wordSeparator"
-        class="input textInput"
-        type="text"
-        name="wordSeparator"
-        size="5"
-        maxlength="5"
-        spellcheck="false"
-      /><br />
-      <span>number of words </span>
-      <input
-        id="phraseLength"
-        class="input textInput"
-        type="text"
-        name="phraseLength"
-        size="5"
-        maxlength="5"
-        spellcheck="false"
-      /><br />
-      <select id="dictionarySelect" class="input" name="dictionary">
-        <option value="multilingual">multilingual</option>
-        <option value="eff">english-eff</option>
-        <option value="diceware">english-diceware</option>
-      </select>
-      <select id="capitalsSelect" class="input" name="capitals">
-        <option class="input" value="false">lowercase</option>
-        <option value="camel">camelCase</option>
-        <option value="true">UpperCase</option>
-      </select>
-    </div>
-    <div id="helpGap">
-      <div id="instructions" class="hidden">
-        <span
-          >if you don't have a password manager, you really should. any of these
-          will do:</span
-        >
-        <ul>
-          <li><a href="https://keepassxc.org/">keepassXC</a></li>
-          <li><a href="https://1password.com/">1password</a></li>
-          <li><a href="https://www.lastpass.com/">lastpass</a></li>
-        </ul>
-        <span>if you have no idea what to do, you should use:</span>
-        <ul>
-          <li>english-eff dictionary</li>
-          <li>4 words long</li>
-          <li>no word separator</li>
-          <li>in UpperCase</li>
-        </ul>
-        <p>
-          if this is an important high-security password, you should use at
-          least 6 words.
-        </p>
-        <a href="https://xkcd.com/936/">why should i use a passphrase?</a>
-        <p>
-          (note, the link above was published ~10 years ago-- 44 bits is no
-          longer strong enough for most applications)
-        </p>
+      <p id="phraseDisplay" class="phrase-display">[loading database]</p>
+      <br /><br />
+      <div id="controls" class="controls">
+        <button id="generateButton" class="input generate-button">
+          new phrase
+        </button>
+        <br />
+        <span>word separator </span>
+        <input
+          id="wordSeparator"
+          class="input textInput"
+          type="text"
+          name="wordSeparator"
+          size="5"
+          maxlength="5"
+          spellcheck="false"
+        /><br />
+        <span>number of words </span>
+        <input
+          id="phraseLength"
+          class="input textInput"
+          type="text"
+          name="phraseLength"
+          size="5"
+          maxlength="5"
+          spellcheck="false"
+        /><br />
+        <select id="dictionarySelect" class="input" name="dictionary">
+          <option value="multilingual">multilingual</option>
+          <option value="eff">english-eff</option>
+          <option value="diceware">english-diceware</option>
+        </select>
+        <select id="capitalsSelect" class="input" name="capitals">
+          <option class="input" value="false">lowercase</option>
+          <option value="camel">camelCase</option>
+          <option value="true">UpperCase</option>
+        </select>
       </div>
-      <!-- <div id="data" class="hidden">
+      <div class="info">
+        <div id="instructions" class="hidden">
+          <span
+            >if you don't have a password manager, you really should. any of
+            these will do:</span
+          >
+          <ul>
+            <li><a href="https://keepassxc.org/">keepassXC</a></li>
+            <li><a href="https://1password.com/">1password</a></li>
+            <li><a href="https://www.lastpass.com/">lastpass</a></li>
+          </ul>
+          <span>if you have no idea what to do, you should use:</span>
+          <ul>
+            <li>english-eff dictionary</li>
+            <li>4 words long</li>
+            <li>no word separator</li>
+            <li>in UpperCase</li>
+          </ul>
+          <p>
+            if this is an important high-security password, you should use at
+            least 6 words. for less important passwords, 4 words is fine.
+          </p>
+          <a href="https://xkcd.com/936/">why should i use a passphrase?</a>
+          <p>
+            (note, the link above was published ~10 years ago-- 44 bits is no
+            longer strong enough for most applications)
+          </p>
+        </div>
+        <!-- <div id="data" class="hidden">
         <span>multilingual dictionary:</span><br>
         <span>average word length:  </span>
         <span id="multiAvg"></span><br> 5.257
@@ -98,15 +101,16 @@
         </ol>
         <p>there are <a href="https://www.rempe.us/diceware/#eff">better passphrase generators</a> out there, and you should probably use them.
       </div> -->
-    </div>
-    <div id="footerLinks">
-      <a id="instructionsLink">help</a>
-      <!--<span> - </span>
+      </div>
+      <div id="footerLinks" class="footer">
+        <a id="instructionsLink">help</a>
+        <!--<span> - </span>
       <a id="dataLink">data</a>
       <span> - </span>
       <a id="whyLink">what the hell is this</a>-->
-      <span> - </span>
-      <a href="">ludant@github</a>
+        <span> - </span>
+        <a href="">ludant@github</a>
+      </div>
     </div>
     <script
       language="JavaScript"

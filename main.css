@@ -1,41 +1,39 @@
-html {
+* {
   background: #222833;
   color: #ddb;
   font-family: Arial, sans-serif; }
 
-#controls {
-  height: 263px;
-  width: 240px;
-  margin: auto;
+.container {
+  width: 18em;
+  margin: auto; }
+
+.controls {
+  height: 18em;
   line-height: 38px;
   padding-top: 10px; }
 
 .textInput {
   width: 31px; }
 
-#phraseDisplay {
-  font-size: 19px; }
+.phrase-display {
+  font-size: 19px;
+  overflow-wrap: anywhere;
+  background: #044354; }
 
-#generateButton {
+.generate-button {
   display: block;
   width: 120px; }
 
-#phraseDisplay, #generateButton {
+.phrase-display, .generate-button {
   text-align: center;
   font-family: monospace;
   margin: 0 auto; }
 
-#footerLinks {
-  width: 240px;
-  margin: auto; }
+.footer {
+  width: 240px; }
 
-#generateButtonDiv {
-  width: 160px;
-  margin: auto; }
-
-#helpGap {
-  width: 300px;
-  margin: auto; }
+.info {
+  width: 300px; }
 
 .hidden {
   display: none; }
