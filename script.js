@@ -67,7 +67,7 @@ function newPhrase(dictionary, length = 4, separator = " ", caps = "false") {
   if (camel) {
     phrase[0] = phrase[0].toLowerCase();
   }
-  $("phraseDisplay").textContent = phrase.join(separator);
+  $("phraseDisplay").value = phrase.join(separator);
 }
 
 function loadDict(url, dictionaryName, generate = false) {
