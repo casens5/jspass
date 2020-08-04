@@ -10,11 +10,11 @@ String.prototype.capitalize = function() {
 };
 
 const multilingualURL =
-  "https://github.com/ludant/jspass/blob/master/dictionaries/multilingual.json?raw=true";
+  "https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/multilingual.json";
 const diceURL =
-  "https://github.com/ludant/jspass/raw/master/dictionaries/diceware.json";
+  "https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/diceware.json";
 const effURL =
-  "https://github.com/ludant/jspass/raw/master/dictionaries/eff.json";
+  "https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/eff.json";
 const dictionaries = {};
 
 $("instructionsLink").addEventListener("click", () => {
