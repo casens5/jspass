@@ -1,32 +1,27 @@
-"use strict";
-
 function $(id) {
   return document.getElementById(id);
 }
 
 // js is a second-rate language and we all know it
-String.prototype.capitalize = function() {
+function capitalize() {
   return this.substring(0, 1).toUpperCase() + this.substring(1);
 };
 
-const multilingualURL =
-  "https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/multilingual.json";
-const diceURL =
-  "https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/diceware.json";
-const effURL =
-  "https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/eff.json";
+const multilingualURL = 'https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/multilingual.json';
+const diceURL = 'https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/diceware.json';
+const effURL = 'https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/eff.json';
 const dictionaries = {};
 
-$("instructionsLink").addEventListener("click", () => {
-  $("info").classList.toggle("hidden");
+$('instructionsLink').addEventListener('click', () => {
+  $('info').classList.toggle('hidden');
 });
 
-$("generateButton").addEventListener("click", () => {
+$('generateButton').addEventListener('click', () => {
   newPhrase(
-    dictionaries[$("dictionarySelect").value],
-    $("phraseLength").value,
-    $("wordSeparator").value,
-    $("capitalsSelect").value
+    dictionaries[$('dictionarySelect').value],
+    $('phraseLength').value,
+    $('wordSeparator').value,
+    $('capitalsSelect').value,
   );
 });
 
@@ -37,10 +32,10 @@ $("generateButton").addEventListener("click", () => {
 //   let number = (dictionary.reduce(reducer, 0) / dictionary.length).toPrecision(
 //     3
 //   );
-//   domElement.textContent = number + " characters";
+//   domElement.textContent = number + ' characters';
 // }
 
-function newPhrase(dictionary, length = 4, separator = " ", caps = "false") {
+function newPhrase(dictionary, length = 4, separator = ' ', caps = 'false') {
   if (length < 1) {
     length = 4;
   }
@@ -50,16 +45,16 @@ function newPhrase(dictionary, length = 4, separator = " ", caps = "false") {
 
   let camel = false;
   // don't judge me
-  if (caps == "camel") {
-    caps = "true";
+  if (caps === 'camel') {
+    caps = 'true';
     camel = true;
   }
 
-  let phrase = [];
+  const phrase = [];
   let word;
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length; i += 1) {
     word = dictionary[Math.floor(Math.random() * dictionary.length)];
-    if (caps === "true") {
+    if (caps === 'true') {
       word = word.capitalize();
     }
     phrase.push(word);
@@ -67,25 +62,25 @@ function newPhrase(dictionary, length = 4, separator = " ", caps = "false") {
   if (camel) {
     phrase[0] = phrase[0].toLowerCase();
   }
-  $("phraseDisplay").value = phrase.join(separator);
+  $('phraseDisplay').value = phrase.join(separator);
 }
 
 function loadDict(url, dictionaryName, generate = false) {
-  let xobj = new XMLHttpRequest();
-  xobj.overrideMimeType("application/json");
-  xobj.open("GET", url, true);
-  xobj.responseType = "json";
-  xobj.onreadystatechange = function() {
-    if (xobj.readyState == 4 && xobj.status == "200") {
+  const xobj = new XMLHttpRequest();
+  xobj.overrideMimeType('application/json');
+  xobj.open('GET', url, true);
+  xobj.responseType = 'json';
+  xobj.onreadystatechange = () => {
+    if (xobj.readyState === 4 && xobj.status === '200') {
       dictionaries[dictionaryName] = xobj.response;
       if (generate) {
-        newPhrase(dictionaries[dictionaryName], 4, " ", "false");
+        newPhrase(dictionaries[dictionaryName], 4, ' ', 'false');
       }
     }
   };
   xobj.send(null);
 }
 
-loadDict(diceURL, "diceware");
-loadDict(effURL, "eff");
-loadDict(multilingualURL, "multilingual", true);
+loadDict(diceURL, 'diceware');
+loadDict(effURL, 'eff');
+loadDict(multilingualURL, 'multilingual', true);
