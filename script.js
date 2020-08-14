@@ -3,13 +3,17 @@ function $(id) {
 }
 
 // js is a second-rate language and we all know it
-function capitalize() {
-  return this.substring(0, 1).toUpperCase() + this.substring(1);
-};
+function capitalize(word) {
+  return word.substring(0, 1).toUpperCase() + word.substring(1);
+}
 
-const multilingualURL = 'https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/multilingual.json';
-const diceURL = 'https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/diceware.json';
-const effURL = 'https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/eff.json';
+const multilingualURL = 'dictionaries/multilingual.json';
+const diceURL = 'dictionaries/diceware.json';
+const effURL = 'dictionaries/eff.json';
+
+// const multilingualURL = 'https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/multilingual.json';
+// const diceURL = 'https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/diceware.json';
+// const effURL = 'https://raw.githubusercontent.com/ludant/jspass/master/dictionaries/eff.json';
 const dictionaries = {};
 
 $('instructionsLink').addEventListener('click', () => {
@@ -55,7 +59,7 @@ function newPhrase(dictionary, length = 4, separator = ' ', caps = 'false') {
   for (let i = 0; i < length; i += 1) {
     word = dictionary[Math.floor(Math.random() * dictionary.length)];
     if (caps === 'true') {
-      word = word.capitalize();
+      word = capitalize(word);
     }
     phrase.push(word);
   }
@@ -71,6 +75,7 @@ function loadDict(url, dictionaryName, generate = false) {
   xobj.open('GET', url, true);
   xobj.responseType = 'json';
   xobj.onreadystatechange = () => {
+		console.log(xobj);
     if (xobj.readyState === 4 && xobj.status === '200') {
       dictionaries[dictionaryName] = xobj.response;
       if (generate) {
