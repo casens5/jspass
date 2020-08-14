@@ -66,7 +66,11 @@ function newPhrase(dictionary, length = 4, separator = ' ', caps = 'false') {
   if (camel) {
     phrase[0] = phrase[0].toLowerCase();
   }
+<<<<<<< HEAD
   $('phraseDisplay').value = phrase.join(separator);
+=======
+  $("phraseDisplay").textContent = phrase.join(separator);
+>>>>>>> parent of 04dcb87... fix footer link
 }
 
 function loadDict(url, dictionaryName, generate = false) {
