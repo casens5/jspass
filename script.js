@@ -85,20 +85,6 @@ async function loadDict(url, dictName, generate = false) {
 	}
 }
 
-async function beeb(url, name, generate = false) {
-  fetch(url)
-	.then(response => response.json())
-	.then(data => {
-		dictionaries[name] = data;
-		if (generate) {
-			newPhrase(dictionaries[name], 4, ' ', 'false');
-		};
-	})
-	.catch((error) => {
-		console.error(error);
-	});
-}
-
 loadDict(diceURL, 'diceware');
 loadDict(effURL, 'eff');
 loadDict(multilingualURL, 'multilingual', true);
