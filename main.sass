@@ -8,9 +8,9 @@ body
 	color: #ddb
 	font-family: Arial, sans-serif
 
-.round-border
-	border: 0 solid #000
-	border-radius: 0.62em
+a
+	color: #f4c
+	text-decoration: underline
 
 .container
 	width: 19em
@@ -24,10 +24,17 @@ body
 	padding: 1.6em 1em 0 1em
 	margin: 0 0 1.6em 0
 
-.textInput
+.text-input
 	width: 3em
 
+.left
+	float: left
+
+.right
+	float: right
+
 .phrase-display
+	box-sizing: border-box
 	font-size: 1.6em
 	overflow-wrap: anywhere
 	background: #044a58
@@ -35,12 +42,13 @@ body
 	margin: 1em 0em
 	font-family: monospace
 	text-align: center
+	width: 100%
 
 .input
-	background: #3a1551
-	color: #fff
+	background: #3a1557
+	color: #eee
 	border-radius: 0.62em
-	border: 0.22em outset #641b82
+	border: 0.22em outset #627
 	padding: 0.29em
 	font-family: monospace
 
@@ -61,9 +69,9 @@ body
 	background: $body-bg
 	padding: 0.6em 1.6em
 
-a
-	color: #f4c
-	text-decoration: underline
+.round-border
+	border: 0 solid #000
+	border-radius: 0.62em
 
 .hidden
 	display: none
