@@ -1,4 +1,5 @@
 # jspass
-browser-based passphrase generator, try it at https://ludant.github.io/jspass/, probably
 
-when testing, use `python3 -m http.server` to fix CORS errors, and use an incognito session to have CSS updates work properly
+[ludant.github.io/flaggy](https://ludant.github.io/jspass/)
+
+browser-based passphrase generator, because i am just a little bit OCD about it.
